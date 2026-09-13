@@ -1,0 +1,4 @@
+interface:
+  display_name: "全球财经资讯雷达"
+  short_description: "采集、核验、去重并排序国内外重要财经资讯"
+  default_prompt: "扫描指定时间窗口内国内外重要财经资讯，优先核验官方来源，合并重复事件，按市场影响排序并生成自然、清楚的中文简报。"

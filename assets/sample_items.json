@@ -1,0 +1,54 @@
+[
+  {
+    "title": "美联储维持利率不变并发布政策声明",
+    "url": "https://example.org/fed-statement?utm_source=test",
+    "source": "Federal Reserve",
+    "source_tier": 1,
+    "official": true,
+    "published_at": "2026-09-13T10:00:00+08:00",
+    "summary": "政策声明维持目标利率区间不变。",
+    "category": "central_bank",
+    "region": [
+      "US"
+    ],
+    "markets": [
+      "US-equities",
+      "US-bonds",
+      "FX"
+    ],
+    "status": "confirmed",
+    "event_key": "fed-rate-decision-2026-09"
+  },
+  {
+    "title": "Fed keeps interest rates unchanged in latest decision",
+    "url": "https://example.com/reuters-fed",
+    "source": "Reuters",
+    "source_tier": 1,
+    "official": false,
+    "published_at": "2026-09-13T10:03:00+08:00",
+    "summary": "Reuters reports that the Federal Reserve kept rates unchanged.",
+    "category": "central_bank",
+    "region": [
+      "US"
+    ],
+    "status": "reported",
+    "event_key": "fed-rate-decision-2026-09"
+  },
+  {
+    "title": "某公司发布季度经营数据",
+    "url": "https://example.cn/filing/1",
+    "source": "巨潮资讯",
+    "source_tier": 1,
+    "official": true,
+    "published_at": "2026-09-13T08:00:00+08:00",
+    "summary": "公司披露季度经营数据。",
+    "category": "company_filing",
+    "region": [
+      "CN"
+    ],
+    "markets": [
+      "A-share"
+    ],
+    "status": "confirmed"
+  }
+]
