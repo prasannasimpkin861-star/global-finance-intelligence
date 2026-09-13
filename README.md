@@ -16,6 +16,7 @@
 - 对重点资讯标注大盘方向、市场风格、受益行业和承压行业。
 - 给出“事件 → 利率/汇率/价格/需求/成本 → 盈利或估值 → 行业”的传导路径。
 - 区分已发生的盘面反应与尚待开盘验证的预期影响，并标注时间窗口和置信度。
+- 固定生成 **Serenity 专栏**：分析 `@aleabitoreddit` 最近 24 小时 X 帖子、观点变化及对美股与 A/H 股行业的可能影响。
 - 支持 JSON/JSONL 标准化、URL 清洗、近似去重、跨语言事件标识和重要性评分。
 - 可调用已安装的 `news-aggregator-skill` 采集国内外新闻。
 - 可与 `a-stock-data`、`agent-reach`、`humanizer-zh` 及可选 MCP/API 协同工作。
@@ -32,6 +33,7 @@ global-finance-intelligence/
 │   └── source_registry.json
 ├── references/
 │   ├── provider-routing.md
+│   ├── serenity-column.md
 │   ├── record-schema.md
 │   └── source-map.md
 └── scripts/
@@ -65,7 +67,7 @@ git clone https://github.com/prasannasimpkin861-star/global-finance-intelligence
 ```text
 $global-finance-intelligence 扫描最近24小时国内外最重要的财经资讯，
 重点关注中国政策、美联储、美股、港股、原油、黄金和人民币，
-合并重复事件并核验官方来源；逐条标注对大盘、市场风格及行业板块的影响、传导路径和置信度。
+合并重复事件并核验官方来源；逐条标注对大盘、市场风格及行业板块的影响、传导路径和置信度，并单列 Serenity 最近24小时 X 帖子分析。
 ```
 
 其他示例：

@@ -19,6 +19,7 @@ REQUIRED = [
     "assets/source_registry.json",
     "references/provider-routing.md",
     "references/record-schema.md",
+    "references/serenity-column.md",
     "references/source-map.md",
     "scripts/audit_environment.py",
     "scripts/collect_local_news.py",

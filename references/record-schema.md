@@ -66,6 +66,18 @@
 - `priced_in` 推荐值：`yes`、`partial`、`no`、`unknown`；休市期间通常为 `unknown`，正文表述为“尚待开盘验证”。
 - `evidence_type` 推荐值：`observed`、`expected`、`mixed`，用于区分真实盘面反应和分析预期。
 
+### Serenity/X 帖子可选字段
+
+- `author_handle`：固定为经过核验的 `@aleabitoreddit`；账号异常时不要自动替换。
+- `post_id`、`conversation_id`：用于去重和合并 thread。
+- `post_type`：`original`、`quote`、`reply`、`repost`、`article_share`。
+- `tickers`、`themes`：原帖明确涉及或经核验后可靠映射的标的与主题。
+- `stance`：`bullish`、`bearish`、`neutral`、`unclear`。
+- `stance_change`：`new`、`strengthened`、`maintained`、`reduced`、`reversed`、`unclear`。
+- `claim_types`：`verifiable_fact`、`supply_chain_inference`、`opinion`、`price_prediction`、`position_or_performance_self_report`。
+
+以上字段记录作者内容，不代表帖子中的外部事实已经核实。
+
 ## 聚类后的输出
 
 脚本会生成事件簇，保留：

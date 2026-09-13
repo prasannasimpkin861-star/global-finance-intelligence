@@ -3,7 +3,7 @@ name: global-finance-intelligence
 description: 采集、核验和整理国内外重要财经资讯，并分析其对大盘、市场风格、行业板块和相关资产的影响；适用于财经早报/晚报、全市场扫描、事件追踪、异动归因和跨来源核验，不用于无需实时数据的基础财经知识问答。
 metadata:
   origin: custom
-  version: 1.1.0
+  version: 1.2.0
 ---
 
 # 全球财经资讯雷达
@@ -34,6 +34,7 @@ python scripts/audit_environment.py
 - A 股行情、公告、研报、资金面、龙虎榜、涨停池、互动易等真实数据：读取并遵循已安装的 `a-stock-data` Skill。
 - 华尔街见闻、Reuters fallback、微博、国际新闻和自定义 OPML：读取并使用 `news-aggregator-skill`。
 - 对互联网进行查找、补源或核验：读取并使用 `agent-reach`。涉及最新消息、官方原文或来源冲突时必须联网核验。
+- Serenity 固定观察源：每日读取 `references/serenity-column.md`，采集并分析 `@aleabitoreddit` 最近 24 小时的 X 帖子；不得用同名或仿冒账号代替。
 - 已配置 OpenNews、TrendRadar、Jin10、Yahoo Finance、RSSHub、ForgeRSS 或其他 MCP/API 时，可以作为增量来源；先确认工具真实存在，不要猜测工具名或伪造调用结果。
 
 详细路由见 [references/provider-routing.md](references/provider-routing.md)。
@@ -103,6 +104,21 @@ python scripts/normalize_rank.py --input raw_items.json --output ranked_events.j
 
 不得把方向判断写成必然涨跌，不给未经用户要求的个股买卖建议或目标价。公司事件需要区分涉事公司、直接竞争对手、上游供应商、下游客户和指数权重效应；宏观事件需要优先分析指数、风格和一级行业，不要无依据扩散到大量题材股。
 
+## Serenity 固定专栏
+
+财经早报、晚报和每日全市场扫描必须单列 **“Serenity 专栏｜最近 24 小时”**。读取并严格遵循 [references/serenity-column.md](references/serenity-column.md)。
+
+本专栏的最低要求：
+
+- 明确 24 小时起止时间、时区、抓取数量、实际覆盖程度和数据缺口。
+- 合并连续 thread，区分原创帖、引用帖、回复和纯转发。
+- 提炼新增观点、观点加强、降低、反转及失效条件，不重复堆叠旧观点。
+- 对帖子涉及的美股标的、AI/半导体供应链主题，以及可能关联的 A/H 股行业做影响分析。
+- 将“账号确实发布”与“帖子内容已经被外部证实”分开；公司、客户、订单、技术和财务事实尽量回查一手来源。
+- 自述持仓、收益和截图统一标注为未独立核验，不推断未公开持仓。
+- 休市期间的帖子统一写成预期影响，尚待开盘验证。
+- 即使没有新帖或 X 访问失败，也保留栏目并说明情况，不能拿超过 24 小时的旧帖冒充当日动态。
+
 ## 输出方式
 
 ### 快速扫描
@@ -122,14 +138,15 @@ python scripts/normalize_rank.py --input raw_items.json --output ranked_events.j
 
 1. 今日最重要的 5—10 件事；每件事附市场影响卡
 2. 大盘、风格与行业板块影响总览
-3. 中国宏观、政策和 A/H 股
-4. 海外宏观、央行和主要股市
-5. 债券与外汇
-6. 商品与能源
-7. 加密资产（有重大事件时）
-8. 公司公告、财报与并购
-9. 今日经济日历和风险事件
-10. 数据覆盖范围与尚未核实事项
+3. Serenity 专栏｜最近 24 小时
+4. 中国宏观、政策和 A/H 股
+5. 海外宏观、央行和主要股市
+6. 债券与外汇
+7. 商品与能源
+8. 加密资产（有重大事件时）
+9. 公司公告、财报与并购
+10. 今日经济日历和风险事件
+11. 数据覆盖范围与尚未核实事项
 
 ### 异动归因
 
@@ -147,6 +164,8 @@ python scripts/normalize_rank.py --input raw_items.json --output ranked_events.j
 - 每项重要事件是否标注了大盘方向、受益/承压行业、传导路径、时间窗口和置信度。
 - 是否区分已发生的市场反应与尚待验证的预期影响。
 - 是否避免无依据地扩散概念板块或把“可能受益”写成“必然上涨”。
+- 是否包含 Serenity 最近 24 小时专栏，并写明窗口、抓取状态、观点变化、事实核验和 A/H 股行业映射。
+- 是否把 Serenity 自述、推断和价格预测误写成已确认事实，或用超过 24 小时的旧帖填充当日专栏。
 - 是否说明数据源故障、付费墙、抓取失败或覆盖缺口。
 - 是否避免把资讯摘要写成个性化买卖建议。
 

@@ -57,6 +57,27 @@ class NormalizeRankTests(unittest.TestCase):
         self.assertEqual(normalized["impact_analysis"], impact)
         self.assertEqual(module.public_record(normalized)["impact_analysis"], impact)
 
+    def test_serenity_post_fields_are_preserved(self):
+        normalized = module.normalize_record(
+            {
+                "title": "Serenity discusses memory supply",
+                "author_handle": "@aleabitoreddit",
+                "post_id": "123",
+                "conversation_id": "120",
+                "post_type": "original",
+                "tickers": ["MU"],
+                "themes": ["memory"],
+                "stance": "bullish",
+                "stance_change": "strengthened",
+                "claim_types": ["supply_chain_inference"],
+            },
+            0,
+        )
+        self.assertEqual(normalized["author_handle"], "@aleabitoreddit")
+        self.assertEqual(normalized["post_id"], "123")
+        self.assertEqual(normalized["tickers"], ["MU"])
+        self.assertEqual(normalized["stance_change"], "strengthened")
+
     def test_json_array_loads(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "items.json"

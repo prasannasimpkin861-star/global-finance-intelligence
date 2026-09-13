@@ -48,5 +48,6 @@
   {"name":"东方财富","region":"CN","type":"data_media","priority":2,"coverage":["a_share","funds","news","research"],"homepage":"https://www.eastmoney.com/","method":"a-stock-data"},
   {"name":"World Gold Council","region":"GLOBAL","type":"industry","priority":2,"coverage":["gold"],"homepage":"https://www.gold.org/","method":"official_web_or_rss"},
   {"name":"CoinDesk","region":"GLOBAL","type":"media","priority":2,"coverage":["crypto"],"homepage":"https://www.coindesk.com/","method":"rss_or_opennews"},
-  {"name":"Cointelegraph","region":"GLOBAL","type":"media","priority":3,"coverage":["crypto"],"homepage":"https://cointelegraph.com/","method":"rss_or_opennews"}
+  {"name":"Cointelegraph","region":"GLOBAL","type":"media","priority":3,"coverage":["crypto"],"homepage":"https://cointelegraph.com/","method":"rss_or_opennews"},
+  {"name":"Serenity (@aleabitoreddit)","region":"GLOBAL","type":"social_analyst","priority":3,"coverage":["ai","semiconductors","supply_chain","us_equities","market_opinion"],"homepage":"https://x.com/aleabitoreddit","method":"agent-reach_twitter_or_public_search","notes":"Primary source only for what the account said; verify external factual claims independently and re-check account identity each run."}
 ]
