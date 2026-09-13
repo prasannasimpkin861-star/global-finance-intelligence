@@ -17,7 +17,34 @@
       "FX"
     ],
     "status": "confirmed",
-    "event_key": "fed-rate-decision-2026-09"
+    "event_key": "fed-rate-decision-2026-09",
+    "impact_analysis": {
+      "market_direction": [
+        {
+          "market": "US-equities",
+          "bias": "mixed",
+          "horizon": "1-3d",
+          "reason": "利率维持不变对估值压力有限，但需结合政策指引判断风险偏好。"
+        }
+      ],
+      "style": [
+        "growth-vs-value-unclear"
+      ],
+      "beneficiary_sectors": [],
+      "pressured_sectors": [],
+      "transmission_path": [
+        "利率决定",
+        "债券收益率与流动性预期",
+        "估值",
+        "股指与行业"
+      ],
+      "priced_in": "unknown",
+      "evidence_type": "expected",
+      "confidence": "low",
+      "conditions": [
+        "需核对政策声明和发布后的实际行情"
+      ]
+    }
   },
   {
     "title": "Fed keeps interest rates unchanged in latest decision",

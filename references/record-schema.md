@@ -18,6 +18,31 @@
   "markets": ["A-share", "CNY", "CN-bonds"],
   "assets": ["CNY", "CN10Y"],
   "status": "confirmed",
+  "impact_analysis": {
+    "market_direction": [
+      {
+        "market": "A-share",
+        "bias": "mixed",
+        "horizon": "1-3d",
+        "reason": "一句话说明指数或风险偏好的传导依据"
+      }
+    ],
+    "style": ["value-over-growth"],
+    "beneficiary_sectors": [
+      {
+        "sector": "受益行业",
+        "reason": "订单、价格、成本、政策或估值依据",
+        "directness": "direct",
+        "confidence": "medium"
+      }
+    ],
+    "pressured_sectors": [],
+    "transmission_path": ["事件", "中间变量", "盈利或估值", "市场/行业"],
+    "priced_in": "partial",
+    "evidence_type": "expected",
+    "confidence": "medium",
+    "conditions": ["结论成立的关键条件"]
+  },
   "importance": 0,
   "tags": ["monetary-policy"]
 }
@@ -33,6 +58,13 @@
 - `category` 推荐值：`central_bank`、`macro_data`、`regulation`、`company_filing`、`earnings`、`ma_financing`、`geopolitics`、`rates_credit`、`fx`、`commodities`、`crypto`、`market_move`、`analysis`。
 - `status` 推荐值：`confirmed`、`reported`、`rumor`、`analysis`。
 - `importance` 可由采集器提供；没有时交给 `normalize_rank.py` 初步计算。
+
+- `impact_analysis` 是分析字段，不是来源事实。没有充分依据时可留空，不能从标题机械生成。
+- `market_direction[].bias` 推荐值：`positive`、`negative`、`mixed`、`unclear`。
+- `horizon` 推荐值：`observed`、`intraday`、`1-3d`、`1-4w`、`quarter+`。
+- `directness` 推荐值：`direct`、`indirect`；`confidence` 推荐值：`high`、`medium`、`low`。
+- `priced_in` 推荐值：`yes`、`partial`、`no`、`unknown`；休市期间通常为 `unknown`，正文表述为“尚待开盘验证”。
+- `evidence_type` 推荐值：`observed`、`expected`、`mixed`，用于区分真实盘面反应和分析预期。
 
 ## 聚类后的输出
 

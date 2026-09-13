@@ -45,6 +45,18 @@ class NormalizeRankTests(unittest.TestCase):
         representative = module.choose_representative(normalized)
         self.assertEqual(representative["source"], "监管机构")
 
+    def test_impact_analysis_is_preserved(self):
+        impact = {
+            "market_direction": [{"market": "A-share", "bias": "mixed"}],
+            "confidence": "medium",
+        }
+        normalized = module.normalize_record(
+            {"title": "政策事件", "source": "官方", "impact_analysis": impact},
+            0,
+        )
+        self.assertEqual(normalized["impact_analysis"], impact)
+        self.assertEqual(module.public_record(normalized)["impact_analysis"], impact)
+
     def test_json_array_loads(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "items.json"

@@ -176,6 +176,7 @@ def normalize_record(item: dict[str, Any], index: int) -> dict[str, Any]:
         "assets": to_list(item.get("assets") or item.get("asset")),
         "status": status if status in STATUS_WEIGHTS else "reported",
         "tags": to_list(item.get("tags")),
+        "impact_analysis": item.get("impact_analysis") if isinstance(item.get("impact_analysis"), dict) else {},
         "input_importance": item.get("importance"),
         "normalized_title": normalize_title(title),
     }
